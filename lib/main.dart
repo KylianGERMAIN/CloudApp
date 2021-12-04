@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'navigation_bar.dart';
+import 'Destination/destination_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: <Widget>[
-            const MyNavigationBar(),
+            const MyDestinationBar(),
             Container(
               color: Colors.orange,
               height: MediaQuery.of(context).size.height * 0.85,
