@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'Destination/destination_bar.dart';
 
@@ -30,16 +32,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  onCalledFromOutside() {
+    log("Call from outside");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Column(
           children: <Widget>[
-            const MyDestinationBar(),
+            MyDestinationBar(onPressed: onCalledFromOutside,),
             Container(
               color: Colors.orange,
-              height: MediaQuery.of(context).size.height * 0.85,
+              height: MediaQuery.of(context).size.height * 0.88,
+              width: MediaQuery.of(context).size.width * 1,
               child: const Text("Hello world"),
               )
           ],
