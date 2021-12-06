@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'Destination/destination_bar.dart';
+import 'Content/content.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,12 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: <Widget>[
             MyDestinationBar(onPressed: onCalledFromOutside,),
-            Container(
-              color: Colors.orange,
-              height: MediaQuery.of(context).size.height * 0.88,
-              width: MediaQuery.of(context).size.width * 1,
-              child: const Text("Hello world"),
-              )
+            const MyContent()
           ],
         ),
       ),

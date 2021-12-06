@@ -55,9 +55,7 @@ class _MyDestinationState extends State<MyDestinationBar> {
                   child: Row(children: <Widget>[
                     const Icon(Icons.location_on),
                     Padding(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 0,
-                            horizontal: MediaQuery.of(context).size.width / 20),
+                        padding: EdgeInsets.symmetric(vertical: 0, horizontal: MediaQuery.of(context).size.width / 20),
                         child: DropdownButton(
                             isDense: true,
                             underline: Container(),
