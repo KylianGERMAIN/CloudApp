@@ -33,7 +33,8 @@ class _MyDestinationState extends State<MyDestinationBar> {
   Widget dropdownMenu(BuildContext context) {
     DropdownMenuItem<Object> itemDrowdown(int i) {
       return DropdownMenuItem(
-        child: Text(tbl[i]),
+        child:
+            Text(tbl[i], style: const TextStyle(fontWeight: FontWeight.bold)),
         value: i,
       );
     }
@@ -79,8 +80,7 @@ class _MyDestinationState extends State<MyDestinationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
+    return SizedBox(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

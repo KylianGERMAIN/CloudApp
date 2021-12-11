@@ -8,8 +8,7 @@ class MyContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          color: Colors.orange,
+        SizedBox(
           height: MediaQuery.of(context).size.height * 0.54,
           width: MediaQuery.of(context).size.width * 1,
           child: Column(
@@ -17,15 +16,15 @@ class MyContent extends StatelessWidget {
             children: const <Widget>[MyTemperatureInterface()],
           ),
         ),
-        Container(
-          color: Colors.red,
-          height: MediaQuery.of(context).size.height * 0.34,
-          width: MediaQuery.of(context).size.width * 1,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[Text("Hello world")],
-          ),
-        )
+        // Container(
+        //   color: Colors.red,
+        //   height: MediaQuery.of(context).size.height * 0.34,
+        //   width: MediaQuery.of(context).size.width * 1,
+        //   child: Column(
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: const <Widget>[Text("Hello world")],
+        //   ),
+        // )
       ],
     );
   }
