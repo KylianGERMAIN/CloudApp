@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Provider/ManageCity.dart';
+import 'package:weather_icons/weather_icons.dart';
+
 
 class MyDestinationBar extends StatefulWidget {
   const MyDestinationBar({Key? key}) : super(key: key);
@@ -10,31 +12,29 @@ class MyDestinationBar extends StatefulWidget {
 }
 
 class _MyDestinationState extends State<MyDestinationBar> {
-  Object _value = 1;
-  List<String> tbl = [];
+  int? _value = 1;
 
   @override
   void initState() {
     super.initState();
-    tbl = ["", "Paris", "Tokyo", "Berlin", "Moscou"];
   }
 
-  void _manageCity(BuildContext context, Object city) {
+  void _manageCity(BuildContext context, int city) {
     Provider.of<ProviderManageCity>(context, listen: false).manageCity(city);
   }
 
-  void change(Object i) {
-    _manageCity(context, i);
+  void change(int? city) {
+    _manageCity(context, city!);
     setState(() {
-      _value = i;
+      _value = city;
     });
   }
 
-  Widget dropdownMenu(BuildContext context) {
-    DropdownMenuItem<Object> itemDrowdown(int i) {
+  Widget dropdownMenu(BuildContext context, List<String> tbl, ProviderManageCity providerManageCity) {
+    DropdownMenuItem<int> itemDrowdown(int? i) {
       return DropdownMenuItem(
         child:
-            Text(tbl[i], style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text(tbl[i!], style: const TextStyle(fontWeight: FontWeight.bold)),
         value: i,
       );
     }
@@ -52,13 +52,13 @@ class _MyDestinationState extends State<MyDestinationBar> {
                   padding: EdgeInsets.symmetric(
                       vertical: 0,
                       horizontal: MediaQuery.of(context).size.width / 20),
-                  child: DropdownButton(
+                  child: DropdownButton<int>(
                       isDense: true,
                       underline: Container(),
                       value: _value,
-                      items: [for (var i = 1; i <= 4; i++) itemDrowdown(i)],
-                      onChanged: (value) {
-                        change(value!);
+                      items: [for (var i = 0; i < providerManageCity.getlistCity.length; i++) itemDrowdown(i)],
+                      onChanged: (int? value) {
+                        change(value);
                       })),
             ]),
           ),
@@ -80,11 +80,17 @@ class _MyDestinationState extends State<MyDestinationBar> {
 
   @override
   Widget build(BuildContext context) {
+
+
+    
+    final ProviderManageCity providerManageCity = Provider.of<ProviderManageCity>(context, listen: false);
+    List<String> tbl = providerManageCity.getlistCity;
+
     return SizedBox(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          dropdownMenu(context),
+          dropdownMenu(context, tbl, providerManageCity),
           calendar(context),
         ],
       ),

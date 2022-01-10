@@ -16,17 +16,28 @@ class Home extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: Scaffold(
-          body: Center(
+          body: Container(
+      decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Color.fromRGBO(108,172,199, 1),
+                Color.fromRGBO(183,229,247, 1),
+              ],
+            )
+          ),
             child: Column(
-              children: <Widget>[
-                MultiProvider(providers: [
-                  ChangeNotifierProvider<ProviderManageCity>(
-                      create: (BuildContext context) => ProviderManageCity())
-                ], child: const MyDestinationBar()),
-                MultiProvider(providers: [
-                  ChangeNotifierProvider<ProviderManageCity>(
-                      create: (BuildContext context) => ProviderManageCity())
-                ], child: const MyContent())
+              children: <Widget>[Consumer<ProviderManageCity>(
+                builder: (BuildContext context,
+                        ProviderManageCity providerManageCity,
+                        Widget? child) =>
+                    const MyDestinationBar()),
+                Consumer<ProviderManageCity>(
+                builder: (BuildContext context,
+                        ProviderManageCity providerManageCity,
+                        Widget? child) =>
+                    const MyContent())
               ],
             ),
           ),
