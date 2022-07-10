@@ -39,6 +39,7 @@ dependencies:
   weather_icons: ^3.0.0
   dio: ^4.0.4
   flutter_dotenv: ^5.0.2
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

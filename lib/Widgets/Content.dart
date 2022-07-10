@@ -11,25 +11,25 @@ class MyContent extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.54,
-          width: MediaQuery.of(context).size.width * 1,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[Consumer<ProviderManageCity>(
-                builder: (BuildContext context,
-                        ProviderManageCity providerManageCity,
-                        Widget? child) =>
-                    const MyTemperatureInterface())],
+            children: <Widget>[
+              Consumer<ProviderManageCity>(
+                  builder: (BuildContext context,
+                          ProviderManageCity providerManageCity,
+                          Widget? child) =>
+                      const MyTemperatureInterface())
+            ],
           ),
         ),
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.34,
-          width: MediaQuery.of(context).size.width * 1,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[Text("Content")],
-          ),
-        )
+        // SizedBox(
+        //   height: MediaQuery.of(context).size.height * 0.34,
+        //   width: MediaQuery.of(context).size.width * 1,
+        //   child: Column(
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: const <Widget>[Text("Content")],
+        //   ),
+        // )
       ],
     );
   }

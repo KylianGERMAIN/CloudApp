@@ -10,34 +10,34 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: Scaffold(
-          body: Container(
-      decoration: const BoxDecoration(
+    return Container(
+        decoration: const BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Color.fromRGBO(108,172,199, 1),
-                Color.fromRGBO(183,229,247, 1),
-              ],
-            )
-          ),
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color.fromRGBO(108, 172, 199, 1),
+            Color.fromRGBO(183, 229, 247, 1),
+          ],
+        )),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              title: Consumer<ProviderManageCity>(
+                  builder: (BuildContext context,
+                          ProviderManageCity providerManageCity,
+                          Widget? child) =>
+                      const MyDestinationBar())),
+          body: Container(
             child: Column(
-              children: <Widget>[Consumer<ProviderManageCity>(
-                builder: (BuildContext context,
-                        ProviderManageCity providerManageCity,
-                        Widget? child) =>
-                    const MyDestinationBar()),
+              children: <Widget>[
                 Consumer<ProviderManageCity>(
-                builder: (BuildContext context,
-                        ProviderManageCity providerManageCity,
-                        Widget? child) =>
-                    const MyContent())
+                    builder: (BuildContext context,
+                            ProviderManageCity providerManageCity,
+                            Widget? child) =>
+                        const MyContent())
               ],
             ),
           ),

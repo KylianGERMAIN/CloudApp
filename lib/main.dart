@@ -7,8 +7,15 @@ import 'Screens/Home.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: '.env');
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider<ProviderManageCity>(
-        create: (BuildContext context) => ProviderManageCity())
-  ], child: const Home()));
+  runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ProviderManageCity>(
+            create: (BuildContext context) => ProviderManageCity())
+      ],
+      child: const MaterialApp(
+        // Remove the debug banner
+        debugShowCheckedModeBanner: false,
+        title: 'Kindacode.com',
+        home: Home(),
+      )));
 }
