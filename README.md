@@ -1,17 +1,13 @@
 # cloudapp
 
-A new Flutter project.
+Cloud app is a meteo application where you can make the city you want and you will have the actual weather
 
-## Getting Started
+## ENV File
 
-This project is a starting point for a Flutter application.
+create an .env file and write this in it:
+you can get an api key on this site https://openweathermap.org/api
 
-A few resources to get you started if this is your first Flutter project:
+```
+.env 'WEATHER_API_KEY=YOUR_API_KEY_WEATHERAPI'
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# CloudApp
